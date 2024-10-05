@@ -70,11 +70,12 @@ a {
     width: $widthBurgerMenu;
     padding: 32px;
     top: 60px;
-    right: -$widthBurgerMenu;
+    right: 0;
     background: #FFFFFF;
     box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
     position: absolute;
     box-sizing: border-box;
+    z-index: 3;
 
     &_menu {
         font-style: normal;

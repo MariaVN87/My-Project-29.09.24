@@ -443,4 +443,10 @@ summary::-webkit-details-marker {
 }
 .footer .footer_botom .footer_botom_img:hover {
   transform: scale(2);
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .nav__menu {
+    right: 0;
+  }
 }/*# sourceMappingURL=style_catalog_page.css.map */
