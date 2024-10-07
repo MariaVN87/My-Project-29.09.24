@@ -19,38 +19,7 @@ a {
     text-decoration: none;
 }
 
-.header {
-    background-color: $BackBlog;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-
-    &__left {
-        @include centerflex;
-        gap: 41px;
-    }
-
-    &__right {
-        @include centerflex;
-        gap: 25px;
-        position: relative;
-    }
-
-    .cart__number {
-        position: absolute;
-        border-radius: 50%;
-        width: 19px;
-        height: 19px;
-        color: $ColorFonts;
-        background-color: $ColorText;
-        font-size: 12px;
-        text-align: center;
-        right: -10px;
-        top: 5px;
-    }
-}
+@include Header;
 
 #burger {
     position: absolute;
@@ -62,58 +31,7 @@ a {
     }
 }
 
-.nav__menu {
-    width: $widthBurgerMenu;
-    padding: 32px;
-    top: 75px;
-    right: -($widthBurgerMenu + 10px);
-    background: #FFFFFF;
-    box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
-    position: absolute;
-    box-sizing: border-box;
-
-    &_menu {
-        font-style: normal;
-        font-weight: 700;
-        font-size: 14px;
-        line-height: 17px;
-        color: #000000;
-        margin-bottom: 24px;
-    }
-
-    &_item {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        margin-bottom: 20px;
-    }
-
-    &_title {
-        font-style: normal;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 17px;
-        color: $ColorText;
-    }
-
-    ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    &_link {
-        font-style: normal;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 17px;
-        color: #6F6E6E;
-    }
-
-}
+@include NavMenu;
 
 .header__top {
     background-color: rgba(248, 243, 244, 1);
@@ -165,8 +83,11 @@ a {
 
 .slider__blog {
     background-color: rgba(248, 248, 248, 1);
-    @include centerflex;
+    display: flex;
+    align-items: center;
     justify-content: space-between;
+
+
 
     .slider__blog__img {
         padding-top: 11px;
@@ -189,7 +110,6 @@ summary::-webkit-details-marker {
     text-align: center;
     background-color: #FFFFFF;
     box-shadow: 1px 4px 35px rgb(235, 235, 235);
-
     margin-top: -45px;
 
 
@@ -269,14 +189,14 @@ summary::-webkit-details-marker {
         background-color: $ColorFonts;
         border: 1px solid $ColorText;
         margin-top: 48px;
+    }
 
-        .btn_details span {
-            font-style: normal;
-            font-weight: 400;
-            font-size: 16px;
-            line-height: 19px;
-            color: $ColorText;
-        }
+    .btn_details span {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        color: $ColorText;
     }
 
     .btn_details:hover {
@@ -287,6 +207,7 @@ summary::-webkit-details-marker {
 
 .product_box_content {
     display: flex;
+    gap: 30px;
     padding-top: 128px;
     padding-bottom: 128px;
 
@@ -314,10 +235,15 @@ summary::-webkit-details-marker {
             justify-content: center;
             align-items: center;
             border: 2px solid $ColorFonts;
+            background-color: rgba(0, 0, 0, .5);
         }
 
         .cart-icon p {
             color: $ColorFonts;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 17px;
         }
 
         .product_content {
@@ -356,7 +282,7 @@ summary::-webkit-details-marker {
 }
 
 .product_img:hover {
-    filter: brightness(0.7);
+    filter: brightness(0.5);
 }
 
 .product_img:hover .cart-icon {
@@ -370,148 +296,81 @@ summary::-webkit-details-marker {
 }
 
 .footer {
-    .footer_top {
-        background-color: $BackBlog;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        gap: 30px;
-        padding-top: 104px;
-        padding-bottom: 104px;
-        margin-top: 95px;
-
-        .footer_block {
-            text-align: center;
-
-            .footer_title {
-                color: white;
-                font-style: normal;
-                font-weight: 400;
-                font-size: 20px;
-                line-height: 24px;
-                padding: 28px 16px;
-            }
-
-            .footer_text {
-                color: white;
-                font-style: normal;
-                font-weight: 400;
-                font-size: 14px;
-                line-height: 17px;
-                text-align: center;
-            }
-        }
-
-        .footer_title:hover {
-            text-decoration: underline;
-        }
-    }
-
-    .footer_center {
-        max-width: 1600px;
-        height: 438px;
-        margin: 0 auto;
-        background-image: url(/image/footer_center_img.jpg);
-        background-repeat: no-repeat;
-
-        &_block {
-            @include centerflex;
-            flex-direction: row;
-            justify-content: space-around;
-            gap: 224px;
-
-        }
-
-        &_foto {
-            text-align: center;
-            width: 360px;
-            margin-top: 97px;
-            margin-bottom: 126px;
-
-            .footer_center_foto img {
-                margin-bottom: 20px;
-
-            }
-
-            .footer_center_p {
-                font-style: normal;
-                font-weight: 400;
-                font-size: 20px;
-                line-height: 24px;
-                text-align: center;
-            }
-        }
-
-        .footer_input {
-
-            @include centerflex;
-            flex-direction: column;
-
-
-            &_title {
-                font-style: normal;
-                font-weight: 700;
-                font-size: 24px;
-                line-height: 167%;
-            }
-
-            &_text {
-                font-style: normal;
-                font-size: 18px;
-                margin-bottom: 30px;
-            }
-
-            .footer_form {
-                display: flex;
-                justify-content: center;
-                width: 356px;
-                text-align: center;
-
-                .input_email {
-                    width: 70%;
-                    height: 49px;
-                    border-radius: 20px 0 0 20px;
-                    border: $ColorFonts;
-                    background-color: $ColorFonts;
-                    ;
-                    padding-left: 20px;
-                }
-
-                .footer_btn {
-                    width: 30%;
-                    height: 49px;
-                    border-radius: 0 20px 20px 0;
-                    border: $ColorText;
-                    background-color: $ColorText;
-                    color: $ColorFonts;
-                }
-
-                .footer_btn:hover {
-                    box-shadow: 1px 4px 20px rgb(156, 155, 155);
-                }
-            }
-        }
-    }
-
-    .footer_botom {
-        background-color: black;
-        display: flex;
-        justify-content: space-between;
-        height: 79px;
-        align-items: center;
-
-        &_text {
-            color: white;
-        }
-
-        .footer_botom_img:hover {
-            transform: scale(2);
-        }
-    }
+    @include FooterTop;
+    @include Footer;
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
+    .center {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
     .nav__menu {
         right: 0;
+    }
+
+    .main__blog {
+        padding: 65px 107px 65px 107px;
+        margin-top: 0;
+        box-shadow: none;
+        border-top: 2px solid rgba(234, 234, 234, 1);
+        border-bottom: 2px solid rgba(234, 234, 234, 1);
+    }
+
+    .product_box_content {
+        gap: 16px;
+
+        .product:last-child {
+            display: none;
+        }
+    }
+
+    .footer {
+        .footer_top {
+            display: none;
+        }
+
+        @include FooterPad
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .center {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .header {
+        .mobil {
+            display: none;
+        }
+    }
+
+    .header__top {
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .product_box_content {
+        flex-direction: column;
+        gap: 0;
+        padding-bottom: 64px;
+
+        .product:last-child {
+            display: none;
+        }
+    }
+
+    .footer {
+        .footer_top {
+            display: none;
+        }
+
+        .footer_center_foto {
+            margin-top: 64px;
+        }
+
+        @include FooterMob;
     }
 }
