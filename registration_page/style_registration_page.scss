@@ -19,38 +19,7 @@ a {
     text-decoration: none;
 }
 
-.header {
-    background-color: $BackBlog;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-
-    &__left {
-        @include centerflex;
-        gap: 41px;
-    }
-
-    &__right {
-        @include centerflex;
-        gap: 25px;
-        position: relative;
-    }
-
-    .cart__number {
-        position: absolute;
-        border-radius: 50%;
-        width: 19px;
-        height: 19px;
-        color: $ColorFonts;
-        background-color: $ColorText;
-        font-size: 12px;
-        text-align: center;
-        right: -10px;
-        top: 5px;
-    }
-}
+@include Header;
 
 #burger {
     position: absolute;
@@ -62,58 +31,7 @@ a {
     }
 }
 
-.nav__menu {
-    width: $widthBurgerMenu;
-    padding: 32px;
-    top: 75px;
-    right: -($widthBurgerMenu+10px);
-    background: #FFFFFF;
-    box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
-    position: absolute;
-    box-sizing: border-box;
-
-    &_menu {
-        font-style: normal;
-        font-weight: 700;
-        font-size: 14px;
-        line-height: 17px;
-        color: #000000;
-        margin-bottom: 24px;
-    }
-
-    &_item {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        margin-bottom: 20px;
-    }
-
-    &_title {
-        font-style: normal;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 17px;
-        color: $ColorText;
-    }
-
-    ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    &_link {
-        font-style: normal;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 17px;
-        color: #6F6E6E;
-    }
-
-}
+@include NavMenu;
 
 .header__top {
     background-color: rgba(248, 243, 244, 1);
@@ -207,6 +125,10 @@ a {
             background-color: #000;
         }
 
+        .checkboxPad {
+            display: none;
+        }
+
         &_login {
             font-style: normal;
             font-weight: 400;
@@ -290,127 +212,88 @@ a {
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
 .footer {
-    .footer_center {
-        max-width: 1600px;
-        height: 438px;
-        margin: 0 auto;
-        background-image: url(/image/footer_center_img.jpg);
-        background-repeat: no-repeat;
+    @include Footer;
+}
 
-        &_img {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            object-fit: cover;
-            z-index: -1
+@media screen and (max-width: 1024px) {
+    .center {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .nav__menu {
+        right: 0;
+    }
+
+    .registration {
+        gap: 22px;
+
+        &__left_name {
+            font-size: 16px;
         }
 
-        &_block {
-            @include centerflex;
-            flex-direction: row;
-            justify-content: space-around;
-            gap: 224px;
-
+        .checkboxPad {
+            display: block;
         }
 
-        &_foto {
-            text-align: center;
+        &__right {
+            font-size: 16px;
             width: 360px;
-            margin-top: 97px;
-            margin-bottom: 126px;
-
-            .footer_center_foto img {
-                margin-bottom: 20px;
-
-            }
-
-            .footer_center_p {
-                font-style: normal;
-                font-weight: 400;
-                font-size: 20px;
-                line-height: 24px;
-                text-align: center;
-            }
         }
 
-        .footer_input {
+    }
 
-            @include centerflex;
-            flex-direction: column;
+    .footer {
+        .footer_top {
+            display: none;
+        }
 
+        @include FooterPad
+    }
+}
 
-            &_title {
-                font-style: normal;
-                font-weight: 700;
-                font-size: 24px;
-                line-height: 167%;
-            }
+@media screen and (max-width: 767px) {
+    .center {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
 
-            &_text {
-                font-style: normal;
-                font-size: 18px;
-                margin-bottom: 30px;
-            }
-
-            .footer_form {
-                display: flex;
-                justify-content: center;
-                width: 356px;
-                text-align: center;
-
-                .input_email {
-                    width: 70%;
-                    height: 49px;
-                    border-radius: 20px 0 0 20px;
-                    border: $ColorFonts;
-                    background-color: $ColorFonts;
-                    padding-left: 20px;
-                }
-
-                .footer_btn {
-                    width: 30%;
-                    height: 49px;
-                    border-radius: 0 20px 20px 0;
-                    border: $ColorText;
-                    background-color: $ColorText;
-                    color: $ColorFonts;
-                }
-
-                .footer_btn:hover {
-                    box-shadow: 1px 4px 20px rgb(156, 155, 155);
-                }
-            }
+    .header {
+        .mobil {
+            display: none;
         }
     }
 
-    .footer_botom {
-        background-color: black;
-        display: flex;
-        justify-content: space-between;
-        height: 79px;
-        align-items: center;
+    .header__top {
+        flex-direction: column;
+        gap: 32px;
+    }
 
-        &_text {
-            color: white;
+    .registration {
+        flex-direction: column;
+        gap: 40px;
+
+        .checkboxPad {
+            display: block;
         }
 
-        .footer_botom_img:hover {
-            transform: scale(2);
+        &__right {
+            font-size: 16px;
         }
+    }
+
+    .footer {
+        .footer_top {
+            display: none;
+        }
+
+        .footer_center_foto {
+            margin-top: 64px;
+        }
+
+        @include FooterMob;
     }
 }
