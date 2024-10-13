@@ -266,6 +266,7 @@ summary::-webkit-details-marker {
   position: absolute;
   left: -9px;
   top: 22px;
+  z-index: 1;
 }
 
 .product__box__content {
@@ -552,6 +553,7 @@ summary::-webkit-details-marker {
   .filter-sort {
     height: 0;
     padding-top: 24px;
+    gap: 0;
   }
   .filter-sort .filter__summary svg {
     width: 37.5px;
@@ -566,6 +568,10 @@ summary::-webkit-details-marker {
   }
   .filter-sort .sort__heading_long {
     width: 96px;
+  }
+  .filter-sort .filter__content {
+    position: absolute;
+    width: 260px;
   }
   .product__box__content {
     gap: 15px;
